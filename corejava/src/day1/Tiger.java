@@ -1,0 +1,25 @@
+package day1;
+
+public class Tiger implements Animal{
+
+	@Override
+	public void makeSound() {
+	System.out.println("Roar..");
+		
+	}
+
+	@Override
+	public void eat() {
+		System.out.println("Deer..");
+		
+	}
+
+	@Override
+	public void sleep() {
+		System.out.println("Loud snore..");
+	}
+	
+	
+	
+
+}
