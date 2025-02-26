@@ -55,6 +55,7 @@ public class Outer {
 		Outer.inner i2=o.new inner();
 		i.addOne();
 		
+		
 		i.print();
 		i2.print();
 		

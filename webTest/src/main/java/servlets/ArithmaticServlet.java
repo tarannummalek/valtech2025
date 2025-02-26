@@ -61,6 +61,7 @@ public class ArithmaticServlet extends HttpServlet {
 		
 		System.out.println("A = "+a+" "+operation+"B= "+b+" "+result);
 		
+		
 		req.setAttribute("result", result);
 		req.getRequestDispatcher("arithmatic.jsp").forward(req, resp);
 //		String content="""

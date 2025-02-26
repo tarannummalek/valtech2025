@@ -27,7 +27,7 @@ class CarTest {
 		Car car=new Car("Honda","City","2024","7","VX");
 		Car car1=(Car)car.clone();
 		assertEquals(car,car1);
-		//assertSame(car,car1);
+		assertSame(car,car1);
 	}
 	
 

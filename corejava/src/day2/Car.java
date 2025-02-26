@@ -1,5 +1,7 @@
 package day2;
 
+import java.util.Objects;
+
 public class Car implements Cloneable{
 	private String make;
 	private String model;
@@ -54,6 +56,20 @@ public class Car implements Cloneable{
 	
 	public int hasCode() {
 		return toString().hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Car other = (Car) obj;
+		return Objects.equals(make, other.make) && Objects.equals(model, other.model)
+				&& Objects.equals(varient, other.varient) && Objects.equals(version, other.version)
+				&& Objects.equals(year, other.year);
 	}
 	public boolean hashCode(Object o) {
 		if(!(o instanceof Car)) return false;

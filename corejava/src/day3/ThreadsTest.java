@@ -16,22 +16,21 @@ class ThreadsTest {
 				}
 			}
 		};
-		new Thread(r).start();
-		new Thread(r).start();
-		new Thread(r).start();
-		new Thread(r).start();
-		new Thread(r).start();
-		Thread t=new Thread() {
-			public void run() {
+//		new Thread(r).start();
+//		new Thread(r).start();
+//		new Thread(r).start();
+//		new Thread(r).start();
+//		new Thread(r).start();
+		Runnable t=()-> {
 				for (int i = 0; i < 10; i++) {
 					System.out.println(Thread.currentThread()+" "+i);
 				}
-			}
+			
 			
 		
 		};
-		t.start();
-		
+		new Thread(t).start();
+		new Thread(t).start();
 	}
 
 }

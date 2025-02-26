@@ -26,10 +26,10 @@ public class StreamPractice {
 			 ;}else{return  a+b; }});
 	 //System.out.println(sum);
 	 
-	 System.out.println(list1.stream().sorted((a,b)->b-a).skip(1).findFirst().orElse(1));
-	 list1.stream().map(e->Collections.frequency(e, list1));
+	 //System.out.println(list1.stream().sorted((a,b)->b-a).skip(1).findFirst().orElse(1));
+	 //list1.stream().map(e->Collections.frequency(e, list1)).
 	 //list1.stream().mapToDouble(null)
-	 
+	 list1.forEach(e->System.out.println(e));
 	 	
 	 
 	 
