@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: spring-web
+
+  datasource:
+    driver-class: org.postgresql.Driver
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/training
+  jpa:
+    hibernate:
+      ddl-auto: update
+  mvc:
+    view:
+      prefix: /WEB-INF/jsps/
+      suffix: .jsp
