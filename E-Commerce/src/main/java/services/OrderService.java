@@ -6,11 +6,11 @@ import model.Order;
 
 public interface OrderService {
 
-	boolean save(Order order);
+	boolean isOrderPlaced(Order order);
 
 	Order get(int id);
 
-	List<Order> getAll();
+	List<Order> getAll();	
 
 	void update(Order order);
 

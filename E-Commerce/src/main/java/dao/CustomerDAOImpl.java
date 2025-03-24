@@ -10,11 +10,6 @@ import model.Customer;
 
 
 public class CustomerDAOImpl implements CustomerDAO {
-	
-
-
-	
-	
 	@Autowired
 	private SessionFactory sessionFactory; 
 	
@@ -24,16 +19,17 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 	
 	@Override
-	public void save(Customer custoemer) {
+	public void save(Customer customer) {
 		
-		new HibernateTemplate(sessionFactory).save(custoemer);
+		new HibernateTemplate(sessionFactory).save(customer);
 		
 		
 	}
 
 	@Override
 	public Customer get(int id) {
-		return new HibernateTemplate(sessionFactory).load(Customer.class, id);
+		Long id1=(long) id;
+		return new HibernateTemplate(sessionFactory).load(Customer.class, id1);
 	
 	}
 
@@ -53,11 +49,13 @@ public class CustomerDAOImpl implements CustomerDAO {
 		new HibernateTemplate(sessionFactory).delete(get(id));
 		
 	}
-	
 
-
-	
-	
-	
+	@Override
+	public void disable(int id) {
+		Customer c=this.get(id);
+		//c.se
+		new HibernateTemplate(sessionFactory).save(c);
+		
+	}
 
 }

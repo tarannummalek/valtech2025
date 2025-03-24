@@ -21,7 +21,7 @@ public class EmployeesServlet extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 
 		dao=new EmployeeDAOImpl();
-		
+	
 		
 	}
 	
@@ -33,9 +33,9 @@ public class EmployeesServlet extends HttpServlet {
 			
 			int id=Integer.parseInt(req.getParameter("id"));
 			Employee e=dao.get(id);
-			req.setAttribute("emp", e);
-			req.setAttribute("mode", "Update");
-			req.setAttribute("check", 0);
+			req.setAttribute("emp",e);
+			req.setAttribute("mode","Update");
+			req.setAttribute("check",0);
 			req.getRequestDispatcher("editEmployee.jsp").forward(req, resp);
 			return;
 			
@@ -50,7 +50,7 @@ public class EmployeesServlet extends HttpServlet {
 			
 		}
 		
-		if("new".equals(operation)) {
+		if("New".equals(operation)) {
 			req.setAttribute("mode", "Save");
 			req.setAttribute("check", 0);
 			
@@ -74,7 +74,7 @@ public class EmployeesServlet extends HttpServlet {
 				.salary(Integer.parseInt(req.getParameter("salary")))
 				.exp(Integer.parseInt(req.getParameter("exp")))
 				.level(Integer.parseInt(req.getParameter("level")))
-				.dept(Integer.parseInt(req.getParameter("dept_id"))).build();
+				.deptId(Integer.parseInt(req.getParameter("dept_id"))).build();
 		
 			if("Cancel".equals(operation)) {
 				
@@ -85,7 +85,6 @@ public class EmployeesServlet extends HttpServlet {
 	
 			if("Save".equals(operation))	{	
 				dao.save(emp);		
-				
 				
 				req.setAttribute("emps", dao.getAll());
 				req.getRequestDispatcher("employees.jsp").forward(req, resp);

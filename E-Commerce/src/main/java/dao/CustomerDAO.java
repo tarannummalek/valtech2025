@@ -11,6 +11,7 @@ public interface CustomerDAO {
 	List<Customer> getAll();
 	void update(Customer customer);
 	void delete(int id);
+	void disable(int id);
 	
 	
 

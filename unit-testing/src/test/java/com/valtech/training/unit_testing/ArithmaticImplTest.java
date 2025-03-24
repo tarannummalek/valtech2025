@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class ArithmaticImplTest {
+	
 	private Arithmatic arithmatic;
 	
 	@BeforeAll
@@ -30,6 +32,15 @@ class ArithmaticImplTest {
 	public void some() {
 		
 		System.out.println("init");
+		
+		arithmatic=new ArithmaticImpl();
+		
+		
+	}
+	@AfterEach
+		public void some1() {
+		
+		System.out.println("endd");
 		
 		arithmatic=new ArithmaticImpl();
 		

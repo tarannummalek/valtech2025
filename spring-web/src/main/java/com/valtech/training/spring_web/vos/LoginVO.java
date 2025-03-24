@@ -1,3 +1,4 @@
+
 package com.valtech.training.spring_web.vos;
 
 public class LoginVO {

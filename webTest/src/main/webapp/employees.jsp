@@ -30,15 +30,15 @@
 <td> ${e.exp}</td>
 <td> ${e.level}</td>
 <td> 
-<a href="employees?operation=Update&id=${e.id }">Update></a>
-<a href="employees?operation=Delete&id=${e.id }">Delete</a>
-</td>`
+<a href="employees?operation=Update&id=${e.id}">Update></a>
+<a href="employees?operation=Delete&id=${e.id}">Delete</a>
+</td>
 
 </tr>
 </c:forEach>
 <tr>
 <td colspan="7">
-<a href="employees?operation=new">New Employee</a>
+<a href="employees?operation=New">New Employee</a>
 </td>
 </tr>
 

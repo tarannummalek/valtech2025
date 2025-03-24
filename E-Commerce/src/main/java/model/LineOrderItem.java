@@ -13,33 +13,32 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+
 @Entity
 
 public class LineOrderItem {
-	
-	
-	@Id@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "lineOrderItem")
-	@SequenceGenerator(name = "lineOrderItem",sequenceName = "line_order_item" )
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "lineOrderItem")
+	@SequenceGenerator(name = "lineOrderItem", sequenceName = "line_order_item", allocationSize = 1)
 	private long id;
 
-	@ManyToOne(targetEntity = Item.class,cascade =CascadeType.ALL,fetch = FetchType.EAGER)
-	@JoinColumn(name = "item_id",referencedColumnName = "id")
+	@ManyToOne(targetEntity = Item.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "item_id", referencedColumnName = "id")
 	private Item item;
-	
-	@ManyToOne(targetEntity = Order.class,cascade =CascadeType.ALL,fetch = FetchType.EAGER)
-	@JoinColumn(name = "order_id",referencedColumnName = "id")
+
+	@ManyToOne(targetEntity = Order.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "order_id", referencedColumnName = "id")
 	private Order order;
-	
+
 	private int Quantity;
 
 	public LineOrderItem() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public LineOrderItem(long id, Item item, Order order, int quantity) {
+	public LineOrderItem(Item item, Order order, int quantity) {
 		super();
-		this.id = id;
+
 		this.item = item;
 		this.order = order;
 		Quantity = quantity;
@@ -75,6 +74,11 @@ public class LineOrderItem {
 
 	public void setQuantity(int quantity) {
 		Quantity = quantity;
+	}
+
+	@Override
+	public String toString() {
+		return "LineOrderItem [id=" + id + ", Quantity=" + Quantity + "]";
 	}
 	
 	

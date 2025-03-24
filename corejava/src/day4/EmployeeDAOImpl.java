@@ -10,8 +10,8 @@ import java.util.List;
 
 import org.w3c.dom.ranges.RangeException;
 
-import Assignmant1.Employee;
-import Assignmant1.Employee.Gender;
+import Assignmant1.entities.Employee;
+import Assignmant1.entities.Employee.Gender;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
 

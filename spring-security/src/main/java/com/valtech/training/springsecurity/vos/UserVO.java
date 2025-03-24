@@ -1,0 +1,16 @@
+package com.valtech.training.springsecurity.vos;
+
+import com.valtech.training.springsecurity.entities.User;
+
+public record UserVO (Long id,String username,String password){
+
+	
+//	public static UserVO from() {
+//		return 
+//	}
+	
+	public User to() {
+		return new User(id==null?0:id, username, password, "USER");
+	}
+
+}

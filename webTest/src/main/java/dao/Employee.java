@@ -17,7 +17,9 @@ public class Employee implements Comparable<Employee>{
 	private int level;
 	private int exp;
 	public Gender gender;
-	private Dept dept;
+	
+	
+	private long deptId;
 	
 	
 
@@ -111,17 +113,15 @@ public class Employee implements Comparable<Employee>{
 		this.exp = exp;
 	}
 
-
 	
 
-
-	public Dept getDept() {
-		return dept;
+	public long getDeptId() {
+		return deptId;
 	}
 
 
-	public void setDept(Dept dept) {
-		this.dept = dept;
+	public void setDeptId(long deptId) {
+		this.deptId = deptId;
 	}
 
 
@@ -230,11 +230,9 @@ public class Employee implements Comparable<Employee>{
 			return this;
 		}
 		
-		public EmployeeBuilder dept(int dept_id) {
-//			System.out.println("Dep: "+dao.getDept(dept_id));
-			DeptDAOImpl deptDAOImpl=new DeptDAOImpl(null);
-			Dept d=(Dept)deptDAOImpl.getDept(dept_id);
-			employee.setDept(d);
+		public EmployeeBuilder deptId(long l) {
+//			
+			employee.setDeptId(l);
 			return this;
 		}
 				

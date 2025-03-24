@@ -34,8 +34,6 @@ public class Item {
 	@OneToMany(targetEntity = LineOrderItem.class,mappedBy = "item",cascade = CascadeType.ALL,fetch =FetchType.LAZY)
 	 Set<LineOrderItem> lineOrderItems;
 	
-//	@ManyToMany(targetEntity = Order.class, fetch =FetchType.LAZY,mappedBy = "items")
-//	private Set<Order> orders;
 
 	public Item() {
 		super();

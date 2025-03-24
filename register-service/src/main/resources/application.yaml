@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: REGISTER-SERVICE
+  datasource: 
+    url: jdbc:postgresql://localhost:5432/netflix
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+server:
+  port: 9055
+eureka: 
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  

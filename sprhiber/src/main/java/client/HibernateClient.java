@@ -1,4 +1,4 @@
-//package hibernate.client;
+package client;
 
 import java.util.List;
 

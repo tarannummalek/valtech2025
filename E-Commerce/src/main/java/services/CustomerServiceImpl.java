@@ -34,6 +34,11 @@ public class CustomerServiceImpl implements CustomerService {
 	public void delete(int id) {
 		customerDAO.delete(id);
 	}
+	@Override
+	public void disable(int id) {
+		customerDAO.disable(id);
+	}
+	
 	
 	
 	

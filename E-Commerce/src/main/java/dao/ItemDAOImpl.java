@@ -17,7 +17,6 @@ public class ItemDAOImpl implements ItemDAO {
 	@Autowired
 	private SessionFactory sessionFactory; 
 	
-	
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
@@ -32,7 +31,8 @@ public class ItemDAOImpl implements ItemDAO {
 
 	@Override
 	public Item get(int id) {
-		return new HibernateTemplate(sessionFactory).load(Item.class, id);
+		Long id1=(long) id;
+		return new HibernateTemplate(sessionFactory).load(Item.class, id1);
 	
 	}
 

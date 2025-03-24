@@ -1,0 +1,27 @@
+--insert into publisher (id,name) values (nextval('pub_seq'),'Oreilly');
+--insert into publisher (id,name) values (nextval('pub_seq'),'Tata Macgrow hill');
+--insert into publisher (id,name) values (nextval('pub_seq'),'Pieon');
+--
+--insert into book (id,name,price,year,publisher_id) values (nextval('book_seq'),'The Complete Referece -Java',120,1997,2);
+--insert into book (id,name,price,year,publisher_id) values (nextval('book_seq'),'Anxious People',100,2001,3);
+--insert into book (id,name,price,year,publisher_id) values (nextval('book_seq'),'Kite runner',90,2004,3);
+--insert into book (id,name,price,year,publisher_id) values (nextval('book_seq'),'J2EE best practices',300,2002,1);
+--insert into book (id,name,price,year,publisher_id) values (nextval('book_seq'),'The Spring Framework',250,1997,2);
+--insert into book (id,name,price,year,publisher_id) values (nextval('book_seq'),'Hibernate Workbook',100,2003,2);
+--
+--insert into author (id,name,address) values (nextval('author_seq'),'Rod JohnSon','Europe');
+--insert into author (id,name,address) values (nextval('author_seq'),'Jurgeon Holler','Europe');
+--insert into author (id,name,address) values (nextval('author_seq'),'James Goshling','US');
+--insert into author (id,name,address) values (nextval('author_seq'),'Gavin King','US');
+--insert into author (id,name,address) values (nextval('author_seq'),'Fedrick Backman','Australia');
+--insert into author (id,name,address) values (nextval('author_seq'),'Khalid hussaini','Afghanistan');
+--
+--insert into book_author (book_id,author_id) values (1,3);
+--insert into book_author (book_id,author_id) values (2,5);
+--insert into book_author (book_id,author_id) values (3,6);
+--insert into book_author (book_id,author_id) values (4,1);
+--insert into book_author (book_id,author_id) values (4,2);
+--insert into book_author (book_id,author_id) values (5,1);
+--
+--insert into book_author (book_id,author_id) values (5,2);
+--insert into book_author (book_id,author_id) values (6,4);

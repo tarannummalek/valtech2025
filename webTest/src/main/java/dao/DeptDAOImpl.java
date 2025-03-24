@@ -18,21 +18,20 @@ import jakarta.servlet.ServletContext;
 
 public class DeptDAOImpl implements DeptDAO {
 
-	ServletContext sc;
+	private String username;
+	private String url;
+	private String d;
 	
-	static {
-		
 	
-		
-	}
+
 	public DeptDAOImpl(ServletContext sc) {
 		this.sc=sc;
 	}
 	
-	private Connection getConnection(ServletContext sc) throws SQLException{
+	private Connection getConnection(String url,String username,String password) throws SQLException{
 
 		
-		String url=(String) sc.getAttribute("url");
+		String url=url;
 		String username=(String) sc.getAttribute("username");
 		String password=(String) sc.getAttribute("password");
 		

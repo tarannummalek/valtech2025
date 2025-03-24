@@ -11,7 +11,7 @@ public class FactoryClient {
 		System.out.println(applicationContext.getBean("p1"));
 		System.out.println(applicationContext.getBean("p1"));
 		System.out.println(applicationContext.getBean("p1")==applicationContext.getBean("p1"));
-
+		System.out.println(applicationContext.getBean("p2"));
 	}
 
 }

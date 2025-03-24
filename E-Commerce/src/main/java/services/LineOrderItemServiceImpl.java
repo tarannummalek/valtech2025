@@ -11,13 +11,13 @@ public class LineOrderItemServiceImpl implements LineOrderItemService {
 	
 	@Autowired
 	LineOrderItemDAO lineOrderItemDAO;
+	
+	public void setLineOrderItemDAO(LineOrderItemDAO lineOrderItemDAO) {
+		this.lineOrderItemDAO = lineOrderItemDAO;
+	}
 
 	@Override
 	public void save(LineOrderItem item) {
-		
-		
-		
-		
 		lineOrderItemDAO.save(item);
 	}
 

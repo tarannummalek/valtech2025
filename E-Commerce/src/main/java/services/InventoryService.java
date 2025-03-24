@@ -3,8 +3,9 @@ package services;
 import java.util.List;
 
 import model.Item;
+import model.Order;
 
-public interface ItemService {
+public interface InventoryService {
 
 	void save(Item item);
 
@@ -15,5 +16,14 @@ public interface ItemService {
 	void update(Item item);
 
 	void delete(int id);
+	
+	void updateInventory(Order order);
+	
+	void orderItemFromVendor(Item item) ;
+
+	boolean checkAvailabilityOfItems(Order order);
+
+	
+	
 
 }

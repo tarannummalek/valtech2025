@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: LOAN-SERVER
+
+  datasource:
+    driver-class: org.postgresql.Driver
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/loanmanagmnt
+  jpa:
+    hibernate:
+      ddl-auto: update
+server:
+  port: 9080

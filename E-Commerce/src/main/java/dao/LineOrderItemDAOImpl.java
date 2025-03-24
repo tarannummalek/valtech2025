@@ -8,6 +8,7 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import model.LineOrderItem;
 
+
 public class LineOrderItemDAOImpl implements LineOrderItemDAO {
 	
 	@Autowired
@@ -31,7 +32,8 @@ public class LineOrderItemDAOImpl implements LineOrderItemDAO {
 
 	@Override
 	public LineOrderItem get(int id) {
-		return new HibernateTemplate(sessionFactory).load(LineOrderItem.class, id);
+		Long id1=(long) id;
+		return new HibernateTemplate(sessionFactory).load(LineOrderItem.class, id1);
 	
 	}
 
