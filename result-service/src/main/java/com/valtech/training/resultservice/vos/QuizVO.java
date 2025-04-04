@@ -9,6 +9,7 @@ public class QuizVO{
 	float duration;
 	List<QuestionVO> questionIds;
 	List<QuestionResultVO> questionResultVOs;
+	
 	public QuizVO() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -20,14 +20,14 @@ public class ResultServiceImpl implements ResultService {
 	public float calculateResult(QuizVO vo1){
 		
 		
-		vo1.getQuestionResultVOs()
+		vo1.getQuestionResultVOs();
 		
 		
-		for( QuestionResultVO questionResultVO: vo1.getQuestionResultVOs()) {
-			questionResultVO.
-		}
+//		for( QuestionResultVO questionResultVO: vo1.getQuestionResultVOs()) {
+//			questionResultVO.
+//		}
 		
-		vo1.get
+		
 		String[] answers=vo1.getSubmittedAnswers();
 		QuizVO vo=quizClient.getQuiz(id);
 		int i=0;

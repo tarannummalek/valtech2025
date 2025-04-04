@@ -1,4 +1,4 @@
-package homeworktask;
+package Javacodility;
 
 public class Datetime {
 	

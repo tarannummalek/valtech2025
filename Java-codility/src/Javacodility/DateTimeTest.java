@@ -1,7 +1,5 @@
-package homeworktask;
-
-import static org.junit.jupiter.api.Assertions.*;
-
+package Javacodility;
+s
 import org.junit.jupiter.api.Test;
 
 class DateTimeTest {

@@ -33,7 +33,7 @@ public class QuizServiceImpl implements QuizService {
 	@Override
 	public QuizVO getQuiz(long id) {
 		QuizVO quizVO1=QuizVO.from(quizRepo.getReferenceById(id));
-		List<QuestionVO> volist=questionClient.getQuestions(quizVO1.getName()s);
+		List<QuestionVO> volist=questionClient.getQuestions(quizVO1.getName());
 		//List<Long> questioIds=volist.stream().map(q->q.id()).collect(Collectors.toList());
 	quizVO1.setQuestionIds(volist);
 	return quizVO1;
