@@ -40,23 +40,17 @@ public class QuizServiceImpl implements QuizService {
 		
 	}
 	
-	
-
 	@Override
-	public QuizVO submitAnswers(SubmittedQuizVO submittedQuizVO) {
-		
+	public QuizVO submitAnswers(SubmittedQuizVO submittedQuizVO) {		
 		List<QuestionResultVO> answers=submittedQuizVO.getListOfAnswers();
 		int score=0;
-		for(QuestionResultVO qVO: answers) {
-			if(qVO.getUserAnswer()==questionClient.getQuestion(qVO.getQuestionId()).correctOption()) {
-				score+=10;
-			}
-		}
-	
-		
-	QuizVO quizVO=QuizVO.from(quizRepo.getReferenceById(submittedQuizVO.getListOfAnswers().get(0).getQuiz_id()));
+//		for(QuestionResultVO qVO: answers) {
+//			if(qVO.getUserAnswer()==questionClient.getQuestion(qVO.getQuestionId()).correctOption()) {
+//				score+=10;
+//			}
+//		}
+		QuizVO quizVO=QuizVO.from(quizRepo.getReferenceById(submittedQuizVO.getListOfAnswers().get(0).getQuiz_id()));
 		if(quizVO.getQuestionResultVOs()==null)quizVO.setQuestionResultVOs(new ArrayList<QuestionResultVO>());
-		quizVO.addQuestionResult(null);
 		quizVO.setQuestionResultVOs(quizVO.getQuestionResultVOs());
 		return quizVO;
 	}

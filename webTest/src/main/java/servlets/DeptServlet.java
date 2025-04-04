@@ -29,8 +29,10 @@ public class DeptServlet extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		ServletContext sc = config.getServletContext();
-		deptDAO = new DeptDAOImpl(sc);
-		System.out.println();
+        String username = sc.getInitParameter("dbUsername");
+        String password = sc.getInitParameter("dbPassword");
+        String url = sc.getInitParameter("dbUrl");
+        deptDAO = new DeptDAOImpl(url, username, password);
 
 	}
 

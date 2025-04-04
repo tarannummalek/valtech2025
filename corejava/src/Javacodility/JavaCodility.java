@@ -12,7 +12,7 @@ public class JavaCodility {
 		System.out.println(sortedSentences[1]);
 		System.out.println(sortedSentences[2]);
 	}
-	
+
 	static int vowelCount(String sentence) {
 		int count = 0;
 		for (char c : sentence.toCharArray()) {
@@ -25,25 +25,29 @@ public class JavaCodility {
 		return count;
 
 	}
+
 	String ratePassword(String password) {
-    if (password.length() < 6) {
-		           return "Password length is short";
-		       }
-		       boolean hasLetter = false, hasDigit = false, hasSpecialChar = false;
-		       String specialChars = "!@#$%^&*()-+=<>?/{}[]|";
-		       for (char ch : password.toCharArray()) {
-		           if (Character.isLetter(ch)) hasLetter = true;
-		           else if (Character.isDigit(ch)) hasDigit = true;
-		           else if (specialChars.indexOf(ch) != -1) hasSpecialChar = true;
-		       }
-		       if (hasLetter && hasDigit && hasSpecialChar && password.length() >= 8) {
-		           return "Strong";
-		       } else if (hasLetter && hasDigit) {
-		           return "Medium";
-		       } else {
-		           return "Weak";
-		       }	
-}
+		if (password.length() < 6) {
+			return "Password length is short";
+		}
+		boolean hasLetter = false, hasDigit = false, hasSpecialChar = false;
+		String specialChars = "!@#$%^&*()-+=<>?/{}[]|";
+		for (char ch : password.toCharArray()) {
+			if (Character.isLetter(ch))
+				hasLetter = true;
+			else if (Character.isDigit(ch))
+				hasDigit = true;
+			else if (specialChars.indexOf(ch) != -1)
+				hasSpecialChar = true;
+		}
+		if (hasLetter && hasDigit && hasSpecialChar && password.length() >= 8) {
+			return "Strong";
+		} else if (hasLetter && hasDigit) {
+			return "Medium";
+		} else {
+			return "Weak";
+		}
+	}
 
 	static String[] sortByVowelCount(String[] sentences) {
 
@@ -52,34 +56,10 @@ public class JavaCodility {
 		for (String sentence : sentences) {
 			vowelCounts.put(sentence, vowelCount(sentence));
 		}
-
 		List<String> sorted = vowelCounts.entrySet().stream().sorted((e, e1) -> e.getValue() - e1.getValue())
 				.map(e -> e.getKey()).toList();
 		System.out.println(sorted);
-		// String[] sortedSentences=new String[sentences.length];
 
-//	for(int i=0;i<sentences.length-1;i++) {
-//		for(int j=1;j<sentences.length-2;j++) {
-//			if(vowelCount(sentences[i])>vowelCount(sentences[j])) {
-//				String temp; 
-//				temp=sentences[i];
-//				sentences[i]=sentences[j];
-//				sentences[j]=temp;
-//				//System.out.println(i+j+);
-//				
-//			}
-//				
-//			}
-//		}
 		return sentences;
 	}
-//	int findEasyToRememberMobileNo(long[] mobileNos) {
-//	for (int i = 0; i < mobileNos.length; i++)
-//		;
-//	return 0;
-//
-//}
-
-	
-
 }

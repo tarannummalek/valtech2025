@@ -10,42 +10,33 @@ import java.util.List;
 
 import org.w3c.dom.ranges.RangeException;
 
-
-
 public class EmployeeDAOImpl implements EmployeeDAO {
-
 	
 	static {
 		try {
 		Class.forName("org.postgresql.Driver");}
 		catch(ClassNotFoundException e){
-			e.printStackTrace();
-			
+			e.printStackTrace();			
 		}
 		
 	}
-	
-	
+		
 	private Connection getConnection() throws SQLException{
-
 		return DriverManager.getConnection("jdbc:postgresql://localhost:5432/training","postgres","postgres");
 	}
 	
 	
 	@Override
-	public void save(Employee e) {
-		
+	public void save(Employee e) {		
 		try(Connection conn = getConnection()){
 			System.out.println(".................");
 			PreparedStatement ps=conn.prepareStatement("INSERT INTO EMPLOYEE (NAME,AGE,GENDER,SALARY,EXPERIENCE,LEVEL,ID,DEPT_ID) VALUES(?,?,?,?,?,?,?,?)");
-			setValuesToPrepareStatements(e, ps);
-			
+			setValuesToPrepareStatements(e, ps);			
 			int rowsAffected=ps.executeUpdate();
 			System.out.println("Rows inserted: "+rowsAffected);
 		}catch(Exception e1) {
 			throw new RuntimeException(e1);
-		}
-		
+		}		
 	}
 
 
@@ -58,8 +49,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			PreparedStatement ps=conn.prepareStatement("UPDATE EMPLOYEE SET NAME=?,AGE=?,GENDER=?,SALARY=?,EXPERIENCE=?,LEVEL=?  WHERE ID=? ");
 			setValuesToPrepareStatements(e, ps);
 			int rowsAffected=ps.executeUpdate();
-			System.out.println("Rows updated: "+rowsAffected);
-			
+			System.out.println("Rows updated: "+rowsAffected);			
 		}catch(Exception e1) {
 			
 		}
@@ -67,8 +57,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public void delete(int id) {
-		
+	public void delete(int id) {		
 		try(Connection conn=getConnection()) {
 			PreparedStatement ps=conn.prepareStatement("DELETE  FROM EMPLOYEE WHERE ID=?");
 			ps.setInt(1, id);
@@ -103,8 +92,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		}
 		
 		}catch(Exception e) {
-			
-			
+			System.out.println(e.getMessage());
 		}
 		return null;
 		
@@ -113,8 +101,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	@Override
 	public List<Employee> getAll() {
 		List<Employee> emps=new ArrayList<Employee>();
-		try (Connection conn=getConnection()){
-			
+		try (Connection conn=getConnection()){			
 			PreparedStatement ps=conn.prepareStatement("SELECT ID,NAME,AGE,GENDER,SALARY,EXPERIENCE,LEVEL FROM EMPLOYEE");
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
@@ -139,20 +126,16 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		System.out.println(e);
 			return e;
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
 	}
 	
-	private void setValuesToPrepareStatements(Employee e, PreparedStatement ps) throws SQLException {
-		DeptDAOImpl d =new DeptDAOImpl(null);
-		
+	private void setValuesToPrepareStatements(Employee e, PreparedStatement ps) throws SQLException {		
 		ps.setString(1, e.getName());
 		ps.setInt(2, e.getAge());
 		ps.setString(3, e.getGender().name());
-		ps.setFloat(4, e.getSalary());
-		
+		ps.setFloat(4, e.getSalary());		
 		ps.setInt(5, e.getExp());
 		ps.setInt(6, e.getLevel());
 		ps.setLong(7, e.getId());

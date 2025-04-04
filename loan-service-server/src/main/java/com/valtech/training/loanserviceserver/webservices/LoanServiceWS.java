@@ -10,6 +10,6 @@ public interface LoanServiceWS {
 
 	LoanVO getLoanVO(long id);
 
-	String applyLoan(ApplyLoanVO applyLoanVO);
+	LoanVO applyLoan(ApplyLoanVO applyLoanVO);
 
 }

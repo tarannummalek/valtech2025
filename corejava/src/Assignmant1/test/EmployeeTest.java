@@ -87,21 +87,12 @@ class EmployeeTest {
 		assertEquals(1, employeeService.getEmployeesByGenderForGender(employees, Gender.FEMALE).get(Gender.FEMALE).size());
 		assertEquals(1, employeeService.getEmployeesByGenderForLevel(employees, 3).get(Gender.FEMALE).size());
 		assertEquals(1, employeeService.getEmployeesByGenderForLevelAndGender(employees, 3, Gender.FEMALE).get(Gender.FEMALE).size());
-		//assertEquals(1, employeeService.getEmployeesByGenderForName(employees, "al").get(Gender.FEMALE).size());
-		//assertEquals(3, employeeService.getEmployeesByGenderForNameIgnoreCase(employees, "AL").get(Gender.MALE).size());
-		
+		assertEquals(1, employeeService.getEmployeesByGenderForName(employees, "al").get(Gender.FEMALE).size());
+		assertEquals(3, employeeService.getEmployeesByGenderForNameIgnoreCase(employees, "AL").get(Gender.MALE).size());		
 		assertEquals(190000,employeeService.genderWiseMapOfsumOfSalariesByGenderWiseMap(employeesByGenderForLevel).get(Gender.MALE));
-		//assertEquals(110000,sumOfSalariesByGenderLevel(genderViseEmplyeeMap).get(Gender.MALE));
 		assertEquals(230000,employeeService.genderWiseMapOfsumOfSalariesByGenderWiseMap(employeesByGenderForName).get(Gender.MALE));
-     	//assertEquals(30000,sumOfSalariesByGenderLevel(nameIgnoreCaseViseEmplyeeMap).get(Gender.FEMALE));
 		
-     	//assertEquals(30000,sumOfSalariesByGenderLevel(levelAndGenderViseEmplyeeMap).get(Gender.FEMALE));
-		//assertEquals(30000,sumOfSalariesByGenderLevel(levelAndGenderViseEmplyeeMap).get(Gender.MALE));
 
-		
-		//assertEquals(190000, employeeService.genderWiseMapOfsumOfSalariesByGenderWiseMap(employeesByGenderForLevelAndGender).get(Gender.MALE));
-		
-		//assertEquals(null, employeeService.genderWiseMapOfsumOfSalariesByGenderWiseMap(employeesByGenderForLevelAndGender));
-
+	
 	}
 }

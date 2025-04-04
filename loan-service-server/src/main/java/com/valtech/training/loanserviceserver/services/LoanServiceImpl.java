@@ -3,6 +3,7 @@ package com.valtech.training.loanserviceserver.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.valtech.training.loanserviceserver.entities.Loan;
 import com.valtech.training.loanserviceserver.entities.LoanStatus;
 import com.valtech.training.loanserviceserver.entities.LoanType;
 import com.valtech.training.loanserviceserver.repos.LoanRepo;
@@ -14,37 +15,42 @@ public class LoanServiceImpl implements LoanService {
 	
 	@Autowired
 	private LoanRepo loanRepo;
-	
 	@Override
-	public LoanVO  applyLoan(ApplyLoanVO vo)
-	{
-		LoanVO loanVO=new LoanVO(0,LoanType.HOME , vo.getIncome()*5, vo.getIncome()*15, LoanStatus.APPLIED);
+	public LoanVO applyLoan(ApplyLoanVO vo) {
+		LoanVO loanVO = processLoan(vo);  // Call processLoan to determine loan status
+		if (loanVO != null && loanVO.getLeaveStatus() == LoanStatus.APPLIED) {
+			save(loanVO); 
+		}
+		return loanVO;  
+	}
+	@Override
+	public void save(LoanVO loanVO) {
+		Loan loan = new Loan();
+		loan.setType(loanVO.getType());
+		loan.setValue(loanVO.getValue());
+		loan.setAssetValue(loanVO.getAssetValue());
+		loan.setStatus(loanVO.getLeaveStatus());
 
-				this.save(loanVO);
-				return  loanVO;
+		loanRepo.save(loan);
 	}
-	private void save(LoanVO loanVO) {
-		// TODO Auto-generated method stub
-		
-	}
+
 	@Override
-	public LoanVO getlLoanVO(long id) {
-		return LoanVO.from(loanRepo.getReferenceById(id));
-	}
-	
 	public LoanVO processLoan(ApplyLoanVO vo) {
-		LoanVO loanVO= null;
-		if(vo.getCibil()>0&&vo.getCibil()<600) {
-			loanVO=new LoanVO(0,LoanType.HOME , vo.getIncome()*5, vo.getIncome()*15, LoanStatus.REJECTED);
-		return loanVO;	
+		LoanVO loanVO = null;
+		if (vo.getCibil() < 600) {
+			loanVO = new LoanVO(0, LoanType.HOME, vo.getIncome() * 5, vo.getIncome() * 15, LoanStatus.REJECTED);
+		} else if (vo.getCibil() >= 600 && vo.getCibil() < 700) {
+			loanVO = new LoanVO(0, LoanType.HOME, vo.getIncome() * 5, vo.getIncome() * 15, LoanStatus.PENDING);
+		} else if (vo.getCibil() >= 700) {
+			loanVO = new LoanVO(0, LoanType.HOME, vo.getIncome() * 5, vo.getIncome() * 15, LoanStatus.APPLIED);
 		}
-		else if(vo.getCibil()>700&&vo.getCibil()<900) {
-			
-			loanVO=new LoanVO(0,LoanType.HOME , vo.getIncome()*5, vo.getIncome()*15, LoanStatus.APPLIED);
-			return loanVO;
-		}
+
 		return loanVO;
-		
 	}
 
+	@Override
+	public LoanVO getLoanVO(long id) {
+		Loan loan = loanRepo.getReferenceById(id); 
+		return LoanVO.from(loan);  
+	}
 }

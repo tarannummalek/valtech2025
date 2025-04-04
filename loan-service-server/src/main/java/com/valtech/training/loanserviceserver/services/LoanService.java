@@ -7,6 +7,10 @@ public interface LoanService {
 
 	LoanVO applyLoan(ApplyLoanVO vo);
 
-	LoanVO getlLoanVO(long id);
+	LoanVO processLoan(ApplyLoanVO vo);
+
+	LoanVO getLoanVO(long id);
+
+	void save(LoanVO loanVO);
 
 }

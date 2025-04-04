@@ -1,27 +1,25 @@
 package com.valtech.training.resultservice.vos;
 
+import java.util.List;
+
 public class AttemtedQuizVO {
-	
-	private String[] submittedAnswers;
 
-	public AttemtedQuizVO() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    private List<QuestionResultVO> questionResultVOs;
 
-	public AttemtedQuizVO(String[] submittedAnswers) {
-		super();
-		this.submittedAnswers = submittedAnswers;
-	}
+    public AttemtedQuizVO() {
+        super();
+    }
 
-	public String[] getSubmittedAnswers() {
-		return submittedAnswers;
-	}
+    public AttemtedQuizVO(List<QuestionResultVO> questionResultVOs) {
+        super();
+        this.questionResultVOs = questionResultVOs;
+    }
 
-	public void setSubmittedAnswers(String[] submittedAnswers) {
-		this.submittedAnswers = submittedAnswers;
-	}
-	
-	
+    public List<QuestionResultVO> getQuestionResultVOs() {
+        return questionResultVOs;
+    }
 
+    public void setQuestionResultVOs(List<QuestionResultVO> questionResultVOs) {
+        this.questionResultVOs = questionResultVOs;
+    }
 }

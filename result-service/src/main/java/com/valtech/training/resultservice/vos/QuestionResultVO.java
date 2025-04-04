@@ -10,6 +10,8 @@ public class QuestionResultVO {
 	
 	private boolean result;
 	
+	private String answer;
+	
 	private long quiz_id;
 
 	public QuestionResultVO() {
@@ -17,13 +19,14 @@ public class QuestionResultVO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public QuestionResultVO(long id, long questionId, String userAnswer, boolean result, long quiz_id) {
+	public QuestionResultVO(long id, long questionId, String userAnswer, boolean result, long quiz_id,String answer) {
 		super();
 		this.id = id;
 		this.questionId = questionId;
 		this.userAnswer = userAnswer;
 		this.result = result;
 		this.quiz_id = quiz_id;
+		this.answer=answer;
 	}
 
 	public long getId() {
@@ -64,6 +67,14 @@ public class QuestionResultVO {
 
 	public void setQuiz_id(long quiz_id) {
 		this.quiz_id = quiz_id;
+	}
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
 	
 	
